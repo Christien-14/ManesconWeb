@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Services - Manescon Immobilier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .tab-button.active {
+            color: #0e7490;
+            border-bottom: 3px solid #0e7490;
+        }
+        .tab-content.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Barre de navigation -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-gray-800">Manescon Immobilier</a>
+            
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="index.html" class="text-gray-600 hover:text-cyan-600 transition duration-300">Accueil</a>
+                <a href="services.html" class="text-gray-600 hover:text-cyan-600 transition duration-300 font-bold">Services</a>
+                <a href="realisations.html" class="text-gray-600 hover:text-cyan-600 transition duration-300">Réalisations</a>
+                <a href="contact.html" class="text-gray-600 hover:text-cyan-600 transition duration-300">Contact</a>
+                <a href="tel:+243820999000" class="flex items-center space-x-2 bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>Appeler</span>
+                </a>
+            </div>
+            
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-2 pt-2 pb-4 space-y-1">
+            <a href="index.html" class="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-100 rounded-md">Accueil</a>
+            <a href="services.html" class="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-100 rounded-md">Services</a>
+            <a href="realisations.html" class="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-100 rounded-md">Réalisations</a>
+            <a href="contact.html" class="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-100 rounded-md">Contact</a>
+            <a href="tel:+243820999000" class="flex items-center space-x-2 px-3 py-2 text-base font-medium text-white bg-cyan-600 hover:bg-cyan-700 rounded-full mt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>Appeler</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        <section class="container mx-auto px-6 py-12">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">Nos Services et Activités</h1>
+                <div class="h-1 w-24 bg-cyan-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex flex-wrap justify-center md:space-x-8 mb-8 border-b-2 border-gray-200">
+                    <button class="tab-button active py-4 px-4 text-sm md:text-base font-semibold transition-colors duration-300" data-tab="immobilier">Manescon Immobilier</button>
+                    <button class="tab-button py-4 px-4 text-sm md:text-base font-semibold text-gray-600 hover:text-cyan-600 transition-colors duration-300" data-tab="production">Production & Commercial</button>
+                    <button class="tab-button py-4 px-4 text-sm md:text-base font-semibold text-gray-600 hover:text-cyan-600 transition-colors duration-300" data-tab="location">Location</button>
+                    <button class="tab-button py-4 px-4 text-sm md:text-base font-semibold text-gray-600 hover:text-cyan-600 transition-colors duration-300" data-tab="environnement">Environnement</button>
+                    <button class="tab-button py-4 px-4 text-sm md:text-base font-semibold text-gray-600 hover:text-cyan-600 transition-colors duration-300" data-tab="informatique">Informatique, Imprimerie & Logistique</button>
+                    <button class="tab-button py-4 px-4 text-sm md:text-base font-semibold text-gray-600 hover:text-cyan-600 transition-colors duration-300" data-tab="magasin">Magasin</button>
+                    <button class="tab-button py-4 px-4 text-sm md:text-base font-semibold text-gray-600 hover:text-cyan-600 transition-colors duration-300" data-tab="sous-traitance">Sous-Traitance</button>
+                    <button class="tab-button py-4 px-4 text-sm md:text-base font-semibold text-gray-600 hover:text-cyan-600 transition-colors duration-300" data-tab="formation">Formation</button>
+                </div>
+
+                <div id="tab-content-container">
+                    <div id="immobilier" class="tab-content">
+                        <div class="flex flex-col md:flex-row items-center gap-8">
+                            <div class="md:w-1/2">
+                                <h3 class="text-3xl font-bold text-gray-800 mb-4">Manescon Immobilier</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    Nous offrons une expertise complète dans la conception et la réalisation de vos projets immobiliers, en assurant une gestion de chantier et une coordination des travaux irréprochables.
+                                </p>
+                                <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                    <li>Conception et réalisation de projets immobiliers.</li>
+                                    <li>Gestion de chantiers et coordination des travaux.</li>
+                                    <li>Suivi des normes de qualité et de sécurité.</li>
+                                    <li>Construction en générale, y compris bâtiments, ponts et chaussées.</li>
+                                    <li>Conception de plans et de devis.</li>
+                                    <li>Travaux hydrauliques.</li>
+                                </ul>
+                            </div>
+                            <div class="md:w-1/2">
+                                <img src="https://placehold.co/600x400/0e7490/ffffff?text=Projet+immobilier" alt="" class="rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="production" class="tab-content hidden">
+                        <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+                            <div class="md:w-1/2">
+                                <h3 class="text-3xl font-bold text-gray-800 mb-4">Production et Commercial</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    De la fabrication de matériaux de construction à l'aménagement, nous répondons à vos besoins avec des solutions durables et de qualité.
+                                </p>
+                                <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                    <li>Fabrication de matériaux de construction : blocs, pavés écologiques, briques cuites.</li>
+                                    <li>Aménagement intérieur et extérieur.</li>
+                                    <li>Services pour propriétés commerciales et résidentielles.</li>
+                                </ul>
+                            </div>
+                            <div class="md:w-1/2">
+                                <img src="https://placehold.co/600x400/6b7280/ffffff?text=Fabrication+de+mat%C3%A9riaux" alt="" class="rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="location" class="tab-content hidden">
+                        <div class="flex flex-col md:flex-row items-center gap-8">
+                            <div class="md:w-1/2">
+                                <h3 class="text-3xl font-bold text-gray-800 mb-4">Manescon Location</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    Notre service de location propose une large gamme de matériels et d'équipements pour la construction, ainsi que la gestion de biens locatifs.
+                                </p>
+                                <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                    <li>Location de matériels et d’équipements pour la construction.</li>
+                                    <li>Services de location d'espaces commerciaux et résidentiels.</li>
+                                    <li>Gestion de biens locatifs.</li>
+                                </ul>
+                            </div>
+                            <div class="md:w-1/2">
+                                <img src="https://placehold.co/600x400/0891b2/ffffff?text=Location+de+mat%C3%A9riels" alt="" class="rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="environnement" class="tab-content hidden">
+                        <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+                            <div class="md:w-1/2">
+                                <h3 class="text-3xl font-bold text-gray-800 mb-4">Développement, Gestion et Protection de l'Environnement</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    Engagés pour un développement durable, nous mettons en œuvre des projets éco-responsables et formons nos partenaires à la protection de l'environnement.
+                                </p>
+                                <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                    <li>Projets de développement durable.</li>
+                                    <li>Sensibilisation et formation à la protection de l'environnement.</li>
+                                    <li>Solutions pour la gestion des déchets et le recyclage.</li>
+                                </ul>
+                            </div>
+                            <div class="md:w-1/2">
+                                <img src="https://placehold.co/600x400/22c55e/ffffff?text=Projet+durable" alt="" class="rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="informatique" class="tab-content hidden">
+                        <div class="flex flex-col md:flex-row items-center gap-8">
+                            <div class="md:w-1/2">
+                                <h3 class="text-3xl font-bold text-gray-800 mb-4">Informatique, Imprimerie et Logistique</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    Nous offrons des services intégrés allant de l'informatique à la gestion logistique, en passant par des solutions d'imprimerie professionnelles.
+                                </p>
+                                <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                    <li>Solutions informatiques pour la gestion de projets.</li>
+                                    <li>Services d'imprimerie (conception, impression sur tous supports, maintenance, reliure).</li>
+                                    <li>Gestion logistique pour l'approvisionnement et la distribution.</li>
+                                    <li>Installation des logiciels.</li>
+                                </ul>
+                            </div>
+                            <div class="md:w-1/2">
+                                <img src="https://placehold.co/600x400/93c5fd/ffffff?text=Services+informatiques" alt="" class="rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="magasin" class="tab-content hidden">
+                        <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+                            <div class="md:w-1/2">
+                                <h3 class="text-3xl font-bold text-gray-800 mb-4">Manescon Magasin</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    Notre magasin est votre point de référence pour l'achat de matériaux et matériels de construction, avec des conseils techniques et des promotions.
+                                </p>
+                                <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                    <li>Vente au détail des matériaux et matériels de construction.</li>
+                                    <li>Conseil et assistance technique.</li>
+                                    <li>Promotions et offres spéciales pour les clients fidèles.</li>
+                                </ul>
+                            </div>
+                            <div class="md:w-1/2">
+                                <img src="https://placehold.co/600x400/e5e7eb/ffffff?text=Magasin+de+construction" alt="" class="rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sous-traitance" class="tab-content hidden">
+                        <div class="flex flex-col md:flex-row items-center gap-8">
+                            <div class="md:w-1/2">
+                                <h3 class="text-3xl font-bold text-gray-800 mb-4">Service de Sous-Traitance</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    Nous collaborons avec des entrepreneurs pour fournir des solutions flexibles et de qualité, avec une garantie de respect des délais.
+                                </p>
+                                <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                    <li>Partenariat avec des entrepreneurs pour divers travaux.</li>
+                                    <li>Location de maisons et outillage de construction en RDC.</li>
+                                    <li>Vente, achat, commission des parcelles.</li>
+                                    <li>Garantie de qualité et respect des délais.</li>
+                                </ul>
+                            </div>
+                            <div class="md:w-1/2">
+                                <img src="https://placehold.co/600x400/94a3b8/ffffff?text=Sous-traitance" alt="" class="rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="formation" class="tab-content hidden">
+                        <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+                            <div class="md:w-1/2">
+                                <h3 class="text-3xl font-bold text-gray-800 mb-4">Formation professionnelle</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    Nous proposons des formations spécialisées pour le développement des compétences dans les domaines de l'informatique, de la construction et de l'entrepreneuriat.
+                                </p>
+                                <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                    <li>Informatique bureautique.</li>
+                                    <li>Wash (assainissement et hygiène).</li>
+                                    <li>Anglais, Langue et Entrepreneuriat.</li>
+                                    <li>Consultance.</li>
+                                    <li>Apprentissage dessin en BTP.</li>
+                                    <li>Logistique technique BTP.</li>
+                                </ul>
+                            </div>
+                            <div class="md:w-1/2">
+                                <img src="https://placehold.co/600x400/64748b/ffffff?text=Formation+professionnelle" alt="" class="rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="bg-gray-800 text-white py-12 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-4">© 2024 Manescon Immobilier. Tous droits réservés.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 11-11.4 11.4 1.1-.9 2.5-2.1 3.4-3.5 1.2-1.3-.3-2.6-.9-3.6 1.7-.3 3.5-1.5 4.9-3.2-1.5.3-3.1.2-4.6-.2s-3.1-1.3-4.5-2.7c-.8-1.5-1.2-3.1-.7-4.7s1.5-2.9 3.2-3.5c-1.6-.2-3.3-.2-4.9-.1-1.3 1.4-2.2 3.1-2.4 5.1s-.1 3.9.5 5.7c1.7 4 5.3 7 10 7 2.4.9 4.9 1.4 7.5 1.5s5-.3 7.3-1.4c-1.4-1.2-2.7-2.7-3.9-4.3-.9-1.4-1.5-3-1.6-4.6s.1-3.1.8-4.5c.8-1.5 2-2.7 3.6-3.6.4-.3.9-.6 1.4-.8-2.6 1-4.7 2.6-6.3 4.6z"/></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 0-6 6v7h4v-7a2 2 0 0 1 2-2 2 2 0 0 1 2 2v7h4v-7a6 6 0 0 0-6-6z"/><path d="M2 12h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Script pour le menu mobile et les onglets -->
+    <script>
+        lucide.createIcons();
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabContents.forEach(content => content.classList.add('hidden'));
+                tabButtons.forEach(btn => btn.classList.remove('active', 'text-cyan-600', 'font-bold'));
+                tabButtons.forEach(btn => btn.classList.add('text-gray-600', 'hover:text-cyan-600'));
+                
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.remove('hidden');
+
+                button.classList.add('active', 'text-cyan-600', 'font-bold');
+                button.classList.remove('text-gray-600', 'hover:text-cyan-600');
+            });
+        });
+    </script>
+</body>
+</html>

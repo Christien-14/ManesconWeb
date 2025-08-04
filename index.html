@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Manescon Immobilier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Barre de navigation -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-gray-800">Manescon Immobilier</a>
+            
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="index.html" class="text-gray-600 hover:text-cyan-600 transition duration-300 font-bold">Accueil</a>
+                <a href="services.html" class="text-gray-600 hover:text-cyan-600 transition duration-300">Services</a>
+                <a href="realisations.html" class="text-gray-600 hover:text-cyan-600 transition duration-300">Réalisations</a>
+                <a href="contact.html" class="text-gray-600 hover:text-cyan-600 transition duration-300">Contact</a>
+                <a href="tel:+243820999000" class="flex items-center space-x-2 bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>Appeler</span>
+                </a>
+            </div>
+            
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-2 pt-2 pb-4 space-y-1">
+            <a href="index.html" class="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-100 rounded-md">Accueil</a>
+            <a href="services.html" class="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-100 rounded-md">Services</a>
+            <a href="realisations.html" class="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-100 rounded-md">Réalisations</a>
+            <a href="contact.html" class="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-100 rounded-md">Contact</a>
+            <a href="tel:+243820999000" class="flex items-center space-x-2 px-3 py-2 text-base font-medium text-white bg-cyan-600 hover:bg-cyan-700 rounded-full mt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>Appeler</span>
+            </a>
+        </div>
+    </nav>
+    
+    <main class="pt-20">
+        <!-- Section Hero -->
+        <header class="relative bg-cyan-800 text-white flex items-center justify-center text-center overflow-hidden min-h-[50vh] md:min-h-[70vh] rounded-b-xl shadow-lg">
+            <!-- Background video/image -->
+            <img src="https://placehold.co/1920x1080/0e7490/ffffff?text=Image+de+construction" alt="Background de chantier" class="absolute inset-0 w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-t from-cyan-900 via-transparent to-transparent"></div>
+            
+            <div class="relative z-10 p-8 max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up">Manescon Immobilier</h1>
+                <p class="text-lg md:text-xl mb-8 opacity-90 animate-fade-in-up-delay">
+                    Votre partenaire de confiance pour tous vos projets immobiliers et de construction en République Démocratique du Congo.
+                </p>
+                <a href="services.html" class="inline-block bg-white text-cyan-600 font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:bg-gray-100 hover:scale-105 animate-fade-in-up-delay">
+                    Découvrir nos services
+                </a>
+            </div>
+        </header>
+
+        <!-- Section Qui Sommes-nous -->
+        <section class="container mx-auto px-6 py-16">
+            <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x400/94a3b8/ffffff?text=Image+de+l'entreprise" alt="[Image de l'entreprise Manescon]" class="rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="md:w-1/2 text-gray-800">
+                        <h2 class="text-3xl font-bold mb-4">Qui sommes-nous ?</h2>
+                        <p class="text-lg mb-4 leading-relaxed">
+                            Manescon Immobilier "MI. SARL" est une société de construction et de commerce général, créée en 2020 en République Démocratique du Congo. Nous sommes un leader dans le secteur, offrant une gamme complète de services pour répondre aux besoins de nos clients avec un engagement fort pour la qualité et l'innovation.
+                        </p>
+                        <p class="text-lg mb-4 leading-relaxed">
+                            Nous disposons de tous les instruments juridiques nécessaires pour opérer en toute légalité sur toute l'étendue du territoire congolais.
+                        </p>
+                        <ul class="list-none space-y-2 mt-6">
+                            <li class="flex items-center space-x-3 text-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle text-cyan-600"><path d="M22 11.08V12a10 10 0 1 1-5.93-8.62"/><path d="M9 11l3 3L22 4"/></svg><span>RCCM: CD/GOM/RCCM/20-B-00344</span></li>
+                            <li class="flex items-center space-x-3 text-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle text-cyan-600"><path d="M22 11.08V12a10 10 0 1 1-5.93-8.62"/><path d="M9 11l3 3L22 4"/></svg><span>ID. NAT: 19-F4200-N70176C</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Aperçu des Services -->
+        <section class="container mx-auto px-6 py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Nos principaux services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Découvrez l'étendue de notre expertise dans la construction, le commerce général et bien plus encore.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Carte Service 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105">
+                    <div class="text-cyan-600 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M6 12H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Manescon Immobilier</h3>
+                    <p class="text-gray-600">
+                        Conception, réalisation et gestion de projets immobiliers, de la construction de bâtiments aux travaux hydrauliques.
+                    </p>
+                </div>
+                <!-- Carte Service 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105">
+                    <div class="text-cyan-600 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-factory"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Production et Commercial</h3>
+                    <p class="text-gray-600">
+                        Fabrication de matériaux de construction, aménagement, et commerce de produits immobiliers.
+                    </p>
+                </div>
+                <!-- Carte Service 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105">
+                    <div class="text-cyan-600 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M12 1.5a5.5 5.5 0 0 0-5.5 5.5c0 4.2 4.45 9 5.5 12 1.05-3 5.5-7.8 5.5-12a5.5 5.5 0 0 0-5.5-5.5z"/><circle cx="12" cy="7" r="2.5"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Location</h3>
+                    <p class="text-gray-600">
+                        Service de location de matériels de construction, d'équipements et gestion de biens locatifs.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="services.html" class="inline-block bg-cyan-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:bg-cyan-700 hover:scale-105">
+                    Voir tous les services
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="bg-gray-800 text-white py-12 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-4">© 2024 Manescon Immobilier. Tous droits réservés.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 11-11.4 11.4 1.1-.9 2.5-2.1 3.4-3.5 1.2-1.3-.3-2.6-.9-3.6 1.7-.3 3.5-1.5 4.9-3.2-1.5.3-3.1.2-4.6-.2s-3.1-1.3-4.5-2.7c-.8-1.5-1.2-3.1-.7-4.7s1.5-2.9 3.2-3.5c-1.6-.2-3.3-.2-4.9-.1-1.3 1.4-2.2 3.1-2.4 5.1s-.1 3.9.5 5.7c1.7 4 5.3 7 10 7 2.4.9 4.9 1.4 7.5 1.5s5-.3 7.3-1.4c-1.4-1.2-2.7-2.7-3.9-4.3-.9-1.4-1.5-3-1.6-4.6s.1-3.1.8-4.5c.8-1.5 2-2.7 3.6-3.6.4-.3.9-.6 1.4-.8-2.6 1-4.7 2.6-6.3 4.6z"/></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 0-6 6v7h4v-7a2 2 0 0 1 2-2 2 2 0 0 1 2 2v7h4v-7a6 6 0 0 0-6-6z"/><path d="M2 12h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Script pour le menu mobile -->
+    <script>
+        lucide.createIcons();
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
