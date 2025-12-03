@@ -1,557 +1,269 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Accueil - Manescon Immobilier</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Accueil - Manescon Immobilier</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        :root{
-            --accent: #06b6d4; /* cyan-500 */
-            --accent-2: #00b3ff;
-            --glass: rgba(255,255,255,0.04);
-            --card-glow: 0 12px 40px rgba(0,0,0,0.6);
-            --white-soft: #e6eef3;
-            --danger: #ff0044;
-        }
+<style>
+:root{
+    --accent: #06b6d4;
+    --accent-2: #00b3ff;
+    --glass: rgba(255,255,255,0.04);
+    --card-glow: 0 12px 40px rgba(0,0,0,0.6);
+    --white-soft: #e6eef3;
+    --danger: #ff0044;
+}
 
-        /* --- GLOBAL (background noir demandé) --- */
-        html,body{
-            height:100%;
-            margin:0;
-            font-family: 'Poppins', sans-serif;
-            background: #000; /* fond noir */
-            color: #e6eef3;    /* texte clair pour lisibilité sans toucher au contenu */
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
-        }
+html,body{
+    height:100%;
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:#000;
+    color:#e6eef3;
+    overflow-x:hidden;
+}
 
-        /* Make Tailwind container behave well on black background */
-        .container { max-width: 1200px; margin-left:auto; margin-right:auto; }
+a { transition: all 0.3s ease-in-out; }
 
-        /* --- AGGRESSIVE THEME: heavy glows, sharp transitions --- */
-        * { box-sizing: border-box; }
+.glitch {
+    position: relative;
+    color: #fff;
+    font-weight:700;
+    font-size:4rem;
+    display:inline-block;
+}
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position:absolute;
+    left:0; top:0;
+    width:100%;
+    overflow:hidden;
+    clip: rect(0,900px,0,0);
+}
+.glitch::before {
+    color: rgba(255,0,85,0.9);
+    transform: translate3d(-6px,0,0);
+    animation: glitch-top 1.6s infinite linear alternate-reverse;
+    mix-blend-mode: screen;
+}
+.glitch::after {
+    color: rgba(0,210,255,0.85);
+    transform: translate3d(6px,0,0);
+    animation: glitch-bottom 1.35s infinite linear alternate-reverse;
+    mix-blend-mode: screen;
+}
+@keyframes glitch-top{
+0% { clip: rect(4px,9999px,40px,0); transform:translate3d(-6px,0,0) skewX(-2deg);}
+20% { clip: rect(30px,9999px,70px,0); transform:translate3d(-2px,-2px,0) skewX(-1deg);}
+40% { clip: rect(50px,9999px,120px,0); transform:translate3d(-12px,1px,0) skewX(-3deg);}
+60% { clip: rect(10px,9999px,50px,0); transform:translate3d(-8px,-1px,0) skewX(-1deg);}
+100% { clip: rect(0px,9999px,40px,0); transform:translate3d(-6px,0,0) skewX(-2deg);}
+}
+@keyframes glitch-bottom{
+0% { clip: rect(60px,9999px,140px,0); transform:translate3d(6px,0,0) skewX(2deg);}
+30% { clip: rect(80px,9999px,180px,0); transform:translate3d(12px,2px,0) skewX(1deg);}
+65% { clip: rect(20px,9999px,70px,0); transform:translate3d(4px,-1px,0) skewX(3deg);}
+100% { clip: rect(60px,9999px,140px,0); transform:translate3d(6px,0,0) skewX(2deg);}
+}
 
-        /* Nav */
-        nav { backdrop-filter: blur(6px); background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border-bottom: 1px solid rgba(255,255,255,0.03); }
-        nav a { color: #dbe9ee; }
-        nav a:hover { color: white; text-shadow: 0 6px 24px rgba(0,0,0,0.7); }
+header {
+    position: relative;
+    overflow:hidden;
+    min-height:70vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+header img {
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter: brightness(0.5) saturate(0.8);
+    transition: transform 1.2s ease;
+}
+.hero-pulse {
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    background: radial-gradient(circle at 30% 30%, rgba(6,182,212,0.12), transparent 40%);
+    filter: blur(60px);
+    transform:translate(-50%,-50%);
+    animation: pulse-ring 5s ease-in-out infinite;
+    z-index:0;
+}
+@keyframes pulse-ring {
+0%{ transform: translate(-50%,-50%) scale(.95); opacity:.7; }
+50%{ transform: translate(-50%,-50%) scale(1.1); opacity:.5; }
+100%{ transform: translate(-50%,-50%) scale(.95); opacity:.7; }
+}
 
-        /* Mobile menu animation */
-        #mobile-menu { transform-origin: top center; transition: transform .45s cubic-bezier(.2,.9,.2,1), opacity .35s ease; }
-        #mobile-menu.hidden { transform: scaleY(0); opacity:0; height:0; overflow:hidden; }
-        #mobile-menu:not(.hidden){ transform: scaleY(1); opacity:1; }
+.cta-aggressive {
+    display:inline-block;
+    background:#06b6d4;
+    color:#fff;
+    padding:1rem 2rem;
+    border-radius:9999px;
+    font-weight:700;
+    box-shadow:0 10px 30px rgba(6,182,212,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cta-aggressive:hover {
+    transform: scale(1.1) translateY(-6px);
+    box-shadow:0 30px 80px rgba(6,182,212,0.4);
+}
 
-        /* HERO intense */
-        header { position:relative; overflow:hidden; }
-        header img { mix-blend-mode: overlay; filter: saturate(.8) contrast(.9) brightness(.6); transition: transform 1.6s cubic-bezier(.2,.9,.2,1); will-change: transform; }
-        header .relative.z-10 { transform-style: preserve-3d; }
+.service-card {
+    background: rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:1rem;
+    padding:2rem;
+    transition: transform 0.5s ease, box-shadow 0.4s ease, filter 0.4s ease;
+}
+.service-card:hover {
+    transform: scale(1.05) translateY(-10px) rotateX(4deg);
+    box-shadow:0 20px 60px rgba(6,182,212,0.4);
+    filter: saturate(1.1) brightness(1.1);
+}
 
-        /* Glitch title (AGRESSIF) */
-        .glitch {
-            display:inline-block;
-            position:relative;
-            color: #fff;
-            font-weight:700;
-            letter-spacing: -0.02em;
-            transform: translateZ(0);
-        }
-        .glitch::before, .glitch::after{
-            content: attr(data-text);
-            position:absolute;
-            left:0;
-            top:0;
-            width:100%;
-            overflow:hidden;
-            clip: rect(0,900px,0,0);
-        }
-        /* red / cyan channels for glitch */
-        .glitch::before{
-            color: rgba(255,0,85,0.9);
-            transform: translate3d(-6px,0,0);
-            animation: glitch-top 1.6s infinite linear alternate-reverse;
-            mix-blend-mode: screen;
-            text-shadow: 0 -2px 12px rgba(255,0,85,0.12);
-        }
-        .glitch::after{
-            color: rgba(0,210,255,0.85);
-            transform: translate3d(6px,0,0);
-            animation: glitch-bottom 1.35s infinite linear alternate-reverse;
-            mix-blend-mode: screen;
-            text-shadow: 0 2px 12px rgba(0,210,255,0.12);
-        }
+footer {
+    background:#0a0a0a;
+    padding:3rem 1rem;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,0.05);
+}
+footer a:hover {
+    color:#06b6d4;
+    text-shadow: 0 4px 20px rgba(6,182,212,0.3);
+}
 
-        @keyframes glitch-top{
-            0% { clip: rect(4px,9999px,40px,0); transform:translate3d(-6px,0,0) skewX(-2deg);}
-            20% { clip: rect(30px,9999px,70px,0); transform:translate3d(-2px,-2px,0) skewX(-1deg);}
-            40% { clip: rect(50px,9999px,120px,0); transform:translate3d(-12px,1px,0) skewX(-3deg);}
-            60% { clip: rect(10px,9999px,50px,0); transform:translate3d(-8px,-1px,0) skewX(-1deg);}
-            100% { clip: rect(0px,9999px,40px,0); transform:translate3d(-6px,0,0) skewX(-2deg);}
-        }
-        @keyframes glitch-bottom{
-            0% { clip: rect(60px,9999px,140px,0); transform:translate3d(6px,0,0) skewX(2deg);}
-            30% { clip: rect(80px,9999px,180px,0); transform:translate3d(12px,2px,0) skewX(1deg);}
-            65% { clip: rect(20px,9999px,70px,0); transform:translate3d(4px,-1px,0) skewX(3deg);}
-            100% { clip: rect(60px,9999px,140px,0); transform:translate3d(6px,0,0) skewX(2deg);}
-        }
+.reveal {
+    opacity:0;
+    transform:translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.in-view { opacity:1; transform:translateY(0); }
 
-        /* Burst + shake for hero CTA */
-        .cta-aggressive {
-            transform-origin:center;
-            transition: transform .25s cubic-bezier(.2,.9,.2,1), box-shadow .25s ease;
-            box-shadow: 0 10px 40px rgba(6,182,212,0.08);
-        }
-        .cta-aggressive:hover {
-            animation: pulse-smash .9s ease-in-out infinite;
-            transform: translateY(-6px) scale(1.04) rotate(-1deg);
-            box-shadow: 0 30px 80px rgba(6,182,212,0.18);
-        }
-        @keyframes pulse-smash{
-            0%{ transform: translateY(-2px) scale(1.02) rotate(-0.4deg); }
-            50%{ transform: translateY(-8px) scale(1.06) rotate(-1.1deg); filter: saturate(1.04); }
-            100%{ transform: translateY(-2px) scale(1.02) rotate(-0.4deg); }
-        }
-
-        /* Text reveal: powerful slide + skew */
-        .reveal {
-            opacity:0;
-            transform: translateY(28px) skewY(4deg) scale(0.98);
-            transition: opacity .75s cubic-bezier(.2,.9,.2,1), transform .9s cubic-bezier(.2,.9,.2,1);
-        }
-        .reveal.in-view {
-            opacity:1;
-            transform: translateY(0) skewY(0deg) scale(1);
-        }
-
-        /* Stagger helpers */
-        .reveal.delay-1{ transition-delay: .08s; }
-        .reveal.delay-2{ transition-delay: .16s; }
-        .reveal.delay-3{ transition-delay: .28s; }
-        .reveal.delay-4{ transition-delay: .36s; }
-
-        /* Cards: slam-in + heavy hover tilt */
-        .service-card {
-            transform: translateY(18px) scale(.985);
-            transition: transform .55s cubic-bezier(.2,.9,.2,1), box-shadow .35s ease;
-            will-change: transform;
-            border: 1px solid rgba(255,255,255,0.03);
-            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-        }
-        .service-card.in-view { transform: translateY(0) scale(1); box-shadow: 0 18px 50px rgba(3,10,18,0.6); }
-        .service-card:hover {
-            transform: perspective(900px) translateY(-10px) rotateX(6deg) scale(1.012);
-            box-shadow: 0 36px 80px rgba(0,0,0,0.7), 0 0 28px rgba(6,182,212,0.06);
-            filter: saturate(1.08) contrast(1.02);
-        }
-
-        /* images micro-explode on hover */
-        img.rounded-xl, header img {
-            transition: transform .9s cubic-bezier(.2,.9,.2,1), filter .9s ease;
-        }
-        img.rounded-xl:hover { transform: scale(1.06) rotate(-1deg) translateZ(0); filter: contrast(1.02) saturate(1.08); }
-
-        /* Footer heavy underline & glow */
-        footer { border-top: 1px solid rgba(255,255,255,0.03); background: linear-gradient(0deg, rgba(0,0,0,0.85), rgba(0,0,0,0.95)); }
-        footer a{ color: #cbd8dd; transition: transform .25s ease, color .18s ease; }
-        footer a:hover{ transform: translateY(-4px); color: white; text-shadow: 0 12px 40px rgba(0,0,0,0.6); }
-
-        /* Icon pulse aggressive */
-        .lucide { transition: transform .36s cubic-bezier(.2,.9,.2,1), filter .36s; }
-        .icon-burst:hover { transform: scale(1.12) rotate(-6deg); filter: drop-shadow(0 20px 40px rgba(6,182,212,0.12)); }
-
-        /* small decorative slash that animates across header */
-        .slash {
-            position:absolute;
-            left:-20%;
-            top: 10%;
-            width: 160%;
-            height: 120%;
-            pointer-events:none;
-            background: linear-gradient(120deg, rgba(255,255,255,0.02), rgba(6,182,212,0.06), rgba(255,255,255,0.02));
-            transform: skewX(-18deg) translateX(-30%);
-            animation: slash-glide 6.6s linear infinite;
-            mix-blend-mode: overlay;
-            opacity:0.6;
-        }
-        @keyframes slash-glide {
-            0%{ transform: skewX(-18deg) translateX(-30%); opacity:0.28; }
-            50%{ transform: skewX(-12deg) translateX(0%); opacity:0.6; }
-            100%{ transform: skewX(-18deg) translateX(30%); opacity:0.28; }
-        }
-
-        /* Hero ring pulse behind content */
-        .hero-pulse {
-            position:absolute;
-            left:50%;
-            top:55%;
-            width: 600px;
-            height: 600px;
-            transform: translate(-50%,-50%);
-            border-radius: 50%;
-            filter: blur(40px);
-            background: radial-gradient(circle at 30% 30%, rgba(6,182,212,0.10), rgba(6,182,212,0.02) 30%, transparent 40%);
-            pointer-events:none;
-            animation: pulse-ring 5.2s ease-in-out infinite;
-            z-index:0;
-        }
-        @keyframes pulse-ring {
-            0%{ transform: translate(-50%,-50%) scale(.94); opacity: .8; }
-            50%{ transform: translate(-50%,-50%) scale(1.08); opacity: .55; }
-            100%{ transform: translate(-50%,-50%) scale(.94); opacity: .8; }
-        }
-
-        /* small text flicker (aggressive) */
-        .flicker {
-            display:inline-block;
-            animation: flick 3.2s infinite steps(1,end);
-        }
-        @keyframes flick {
-            0%{ opacity:1; transform:translateY(0) }
-            6%{ opacity:.3; transform:translateY(-2px) skewX(-2deg) }
-            8%{ opacity:1; transform:translateY(0) }
-            30%{ opacity:1 }
-            45%{ opacity:.4; transform:translateY(-3px) skewX(2deg) }
-            55%{ opacity:1 }
-            100%{ opacity:1 }
-        }
-
-        /* Glowing focus on actionable elements */
-        .glow-focus:focus, .glow-focus:hover {
-            outline: none;
-            box-shadow: 0 20px 60px rgba(6,182,212,0.14), 0 0 18px rgba(6,182,212,0.06) inset;
-            transform: translateY(-4px) scale(1.02);
-        }
-
-        /* Progressive heavy underline for headings */
-        h2 { position:relative; padding-bottom: 12px; }
-        h2::after {
-            content:'';
-            position:absolute;
-            left:50%;
-            bottom:2px;
-            width:0%;
-            height:4px;
-            transform:translateX(-50%) skewX(-10deg);
-            background: linear-gradient(90deg, rgba(6,182,212,1), rgba(0,179,255,0.9));
-            box-shadow: 0 6px 22px rgba(6,182,212,0.08);
-            transition: width .7s cubic-bezier(.2,.9,.2,1);
-        }
-        h2.in-view::after{ width:48%; }
-
-        /* Protect reduced-motion users */
-        @media (prefers-reduced-motion: reduce) {
-            .glitch::before, .glitch::after, .slash, .hero-pulse, .cta-aggressive:hover, .service-card:hover, .flicker, .cta-aggressive { animation: none !important; transition: none !important; transform: none !important; }
-        }
-
-        /* tiny responsive tweaks */
-        @media (max-width: 768px) {
-            .hero-pulse { display:none; }
-            .glitch::before, .glitch::after { display:none; }
-        }
-    </style>
+</style>
 </head>
-<body class="antialiased">
+<body>
 
-    <!-- Barre de navigation -->
-    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-gray-800">Manescon Immobilier</a>
-            
-            <div class="hidden md:flex space-x-6 items-center">
-                <a href="index.html" class="text-gray-600 hover:text-cyan-600 transition duration-300 font-bold">Accueil</a>
-                <a href="services.html" class="text-gray-600 hover:text-cyan-600 transition duration-300">Services</a>
-                <a href="realisations.html" class="text-gray-600 hover:text-cyan-600 transition duration-300">Réalisations</a>
-                <a href="contact.html" class="text-gray-600 hover:text-cyan-600 transition duration-300">Contact</a>
-                <a href="tel:+243820999000" class="flex items-center space-x-2 bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 shadow-lg glow-focus">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone icon-burst"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    <span>Appeler</span>
-                </a>
-            </div>
-            
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none glow-focus">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-                </button>
-            </div>
-        </div>
-        
-        <div id="mobile-menu" class="hidden md:hidden bg-white px-2 pt-2 pb-4 space-y-1">
-            <a href="index.html" class="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-100 rounded-md">Accueil</a>
-            <a href="services.html" class="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-100 rounded-md">Services</a>
-            <a href="realisations.html" class="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-100 rounded-md">Réalisations</a>
-            <a href="contact.html" class="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-100 rounded-md">Contact</a>
-            <a href="tel:+243820999000" class="flex items-center space-x-2 px-3 py-2 text-base font-medium text-white bg-cyan-600 hover:bg-cyan-700 rounded-full mt-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                <span>Appeler</span>
-            </a>
-        </div>
-    </nav>
-    
-    <main class="pt-20">
-        <!-- Section Hero -->
-        <header class="relative bg-cyan-800 text-white flex items-center justify-center text-center overflow-hidden min-h-[50vh] md:min-h-[70vh] rounded-b-xl shadow-lg">
-            <!-- Background video/image -->
-            <img src="assets/images/couvert.jpg" alt="Background de chantier" class="absolute inset-0 w-full h-full object-cover opacity-60">
-            <div class="absolute inset-0 bg-gradient-to-t from-cyan-900 via-transparent to-transparent"></div>
+<nav class="fixed w-full z-50 bg-black/30 backdrop-blur-md">
+<div class="container mx-auto px-6 py-3 flex justify-between items-center">
+<a href="index.html" class="text-white font-bold text-2xl">Manescon Immobilier</a>
+<div class="hidden md:flex space-x-6 items-center">
+<a href="index.html" class="hover:text-cyan-400 font-semibold">Accueil</a>
+<a href="services.html" class="hover:text-cyan-400 font-semibold">Services</a>
+<a href="realisations.html" class="hover:text-cyan-400 font-semibold">Réalisations</a>
+<a href="contact.html" class="hover:text-cyan-400 font-semibold">Contact</a>
+<a href="tel:+243820999000" class="bg-cyan-600 px-4 py-2 rounded-full hover:bg-cyan-700 shadow-lg flex items-center space-x-2">
+<svg class="lucide lucide-phone w-5 h-5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+<span>Appeler</span>
+</a>
+</div>
+</div>
+</nav>
 
-            <div class="slash" aria-hidden="true"></div>
-            <div class="hero-pulse" aria-hidden="true"></div>
-            
-            <div class="relative z-10 p-8 max-w-4xl mx-auto">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up glitch reveal delay-1" data-text="Manescon Immobilier">Manescon Immobilier</h1>
-                <p class="text-lg md:text-xl mb-8 opacity-90 animate-fade-in-up-delay reveal delay-2">
-                    Votre partenaire de confiance pour tous vos projets immobiliers et de construction en République Démocratique du Congo.
-                </p>
-                <a href="services.html" class="inline-block bg-white text-cyan-600 font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:bg-gray-100 hover:scale-105 animate-fade-in-up-delay cta-aggressive reveal delay-3">
-                    Découvrir nos services
-                </a>
-            </div>
-        </header>
+<main class="pt-20">
 
-        <!-- Section Qui Sommes-nous -->
-        <section class="container mx-auto px-6 py-16">
-            <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
-                <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-                    <div class="md:w-1/2">
-                        <img src="assets/images/logo.png" alt="[Image de l'entreprise Manescon]" class="rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500 reveal delay-2">
-                    </div>
-                    <div class="md:w-1/2 text-gray-800">
-                        <h2 class="text-3xl font-bold mb-4">Qui sommes-nous ?</h2>
-                        <p class="text-lg mb-4 leading-relaxed reveal delay-1">
-                            Manescon Immobilier "MI. SARL" est une société de construction et de commerce général, créée en 2020 en République Démocratique du Congo. Nous sommes un leader dans le secteur, offrant une gamme complète de services pour répondre aux besoins de nos clients avec un engagement fort pour la qualité et l'innovation.
-                        </p>
-                        <p class="text-lg mb-4 leading-relaxed reveal delay-2">
-                            Nous disposons de tous les instruments juridiques nécessaires pour opérer en toute légalité sur toute l'étendue du territoire congolais.
-                        </p>
-                        <ul class="list-none space-y-2 mt-6 reveal delay-3">
-                            <li class="flex items-center space-x-3 text-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle text-cyan-600 icon-burst"><path d="M22 11.08V12a10 10 0 1 1-5.93-8.62"/><path d="M9 11l3 3L22 4"/></svg><span>RCCM: CD/GOM/RCCM/20-B-00344</span></li>
-                            <li class="flex items-center space-x-3 text-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle text-cyan-600 icon-burst"><path d="M22 11.08V12a10 10 0 1 1-5.93-8.62"/><path d="M9 11l3 3L22 4"/></svg><span>ID. NAT: 19-F4200-N70176C</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+<header>
+<img src="assets/images/couvert.jpg" alt="Background de chantier">
+<div class="hero-pulse"></div>
+<div class="relative z-10 max-w-4xl text-center p-8">
+<h1 class="glitch reveal" data-text="Manescon Immobilier">Manescon Immobilier</h1>
+<p class="mt-6 text-lg reveal">Votre partenaire de confiance pour tous vos projets immobiliers et de construction en République Démocratique du Congo.</p>
+<a href="services.html" class="cta-aggressive mt-6 inline-block reveal">Découvrir nos services</a>
+</div>
+</header>
 
-        <!-- Section Aperçu des Services -->
-        <section class="container mx-auto px-6 py-16">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Nos principaux services</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Découvrez l'étendue de notre expertise dans la construction, le commerce général et bien plus encore.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Carte Service 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105 service-card reveal delay-1">
-                    <div class="text-cyan-600 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-2"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M6 12H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Manescon Immobilier</h3>
-                    <p class="text-gray-600">
-                        Conception, réalisation et gestion de projets immobiliers, de la construction de bâtiments aux travaux hydrauliques.
-                    </p>
-                </div>
-                <!-- Carte Service 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105 service-card reveal delay-2">
-                    <div class="text-cyan-600 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-factory"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Production et Commercial</h3>
-                    <p class="text-gray-600">
-                        Fabrication de matériaux de construction, aménagement, et commerce de produits immobiliers.
-                    </p>
-                </div>
-                <!-- Carte Service 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform hover:scale-105 service-card reveal delay-3">
-                    <div class="text-cyan-600 mb-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin"><path d="M12 1.5a5.5 5.5 0 0 0-5.5 5.5c0 4.2 4.45 9 5.5 12 1.05-3 5.5-7.8 5.5-12a5.5 5.5 0 0 0-5.5-5.5z"/><circle cx="12" cy="7" r="2.5"/></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Location</h3>
-                    <p class="text-gray-600">
-                        Service de location de matériels de construction, d'équipements et gestion de biens locatifs.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="services.html" class="inline-block bg-cyan-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:bg-cyan-700 hover:scale-105 glow-focus">
-                    Voir tous les services
-                </a>
-            </div>
-        </section>
-    </main>
+<section class="container mx-auto px-6 py-16 reveal">
+<div class="bg-white/5 p-8 md:p-12 rounded-xl shadow-lg">
+<div class="flex flex-col md:flex-row items-center gap-12">
+<div class="md:w-1/2"><img src="assets/images/logo.png" class="rounded-xl shadow-lg hover:scale-105 transition-transform" alt="Logo MI"></div>
+<div class="md:w-1/2">
+<h2 class="text-3xl font-bold mb-4">Qui sommes-nous ?</h2>
+<p class="mb-4">Manescon Immobilier "MI. SARL" est une société de construction et de commerce général, créée en 2020 en RDC. Nous sommes un leader dans le secteur, offrant une gamme complète de services pour répondre aux besoins de nos clients.</p>
+<p class="mb-4">Nous disposons de tous les instruments juridiques nécessaires pour opérer en toute légalité sur toute l'étendue du territoire congolais.</p>
+<ul class="list-disc list-inside space-y-2">
+<li>RCCM: CD/GOM/RCCM/20-B-00344</li>
+<li>ID. NAT: 19-F4200-N70176C</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Pied de page -->
-    <footer class="bg-gray-800 text-white py-12 mt-12">
-        <div class="container mx-auto px-6 text-center">
-            <p class="mb-4">© 2024 Manescon Immobilier. Tous droits réservés.</p>
-            <div class="flex justify-center space-x-4">
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 11-11.4 11.4 1.1-.9 2.5-2.1 3.4-3.5 1.2-1.3-.3-2.6-.9-3.6 1.7-.3 3.5-1.5 4.9-3.2-1.5.3-3.1.2-4.6-.2s-3.1-1.3-4.5-2.7c-.8-1.5-1.2-3.1-.7-4.7s1.5-2.9 3.2-3.5c-1.6-.2-3.3-.2-4.9-.1-1.3 1.4-2.2 3.1-2.4 5.1s-.1 3.9.5 5.7c1.7 4 5.3 7 10 7 2.4.9 4.9 1.4 7.5 1.5s5-.3 7.3-1.4c-1.4-1.2-2.7-2.7-3.9-4.3-.9-1.4-1.5-3-1.6-4.6s.1-3.1.8-4.5c.8-1.5 2-2.7 3.6-3.6.4-.3.9-.6 1.4-.8-2.6 1-4.7 2.6-6.3 4.6z"/></svg>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 0-6 6v7h4v-7a2 2 0 0 1 2-2 2 2 0 0 1 2 2v7h4v-7a6 6 0 0 0-6-6z"/><path d="M2 12h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-                </a>
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                </a>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- Script pour le menu mobile + animations JS -->
-    <script>
-        lucide.createIcons();
+<section class="container mx-auto px-6 py-16 reveal">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold mb-4">Nos principaux services</h2>
+<p class="max-w-2xl mx-auto">Découvrez l'étendue de notre expertise dans la construction, le commerce général et bien plus encore.</p>
+</div>
 
-        /* Mobile menu toggle (kept) */
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton?.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="service-card reveal">
+<div class="text-cyan-500 mb-4"><svg class="lucide w-12 h-12"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M6 12H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div>
+<h3 class="text-xl font-bold mb-2">Manescon Immobilier</h3>
+<p>Conception, réalisation et gestion de projets immobiliers, de la construction de bâtiments aux travaux hydrauliques.</p>
+</div>
 
-        /* ---------------------
-           Scroll reveal (IntersectionObserver)
-           --------------------- */
-        (function(){
-            const opts = { root: null, rootMargin: '0px', threshold: 0.12 };
-            const io = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if(entry.isIntersecting){
-                        entry.target.classList.add('in-view');
-                        // For reveal elements, add slight randomized micro-shake when appearing
-                        if(entry.target.classList.contains('reveal')){
-                            entry.target.style.willChange = 'transform,opacity';
-                        }
-                        // Once in view, stop observing to keep animation one-time (aggressive reveal)
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, opts);
+<div class="service-card reveal">
+<div class="text-cyan-500 mb-4"><svg class="lucide w-12 h-12"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg></div>
+<h3 class="text-xl font-bold mb-2">Production et Commercial</h3>
+<p>Fabrication de matériaux de construction, aménagement, et commerce de produits immobiliers.</p>
+</div>
 
-            // target elements
-            const targets = document.querySelectorAll('.reveal, .service-card, h2');
-            targets.forEach(t => io.observe(t));
-        })();
+<div class="service-card reveal">
+<div class="text-cyan-500 mb-4"><svg class="lucide w-12 h-12"><path d="M12 1.5a5.5 5.5 0 0 0-5.5 5.5c0 4.2 4.45 9 5.5 12 1.05-3 5.5-7.8 5.5-12a5.5 5.5 0 0 0-5.5-5.5z"/><circle cx="12" cy="7" r="2.5"/></svg></div>
+<h3 class="text-xl font-bold mb-2">Location</h3>
+<p>Service de location de matériels de construction, d'équipements et gestion de biens locatifs.</p>
+</div>
+</div>
 
-        /* ---------------------
-           HERO parallax + mouse-driven tilt (aggressive)
-           --------------------- */
-        (function(){
-            const header = document.querySelector('header');
-            const heroImg = header && header.querySelector('img');
-            const heroPulse = document.querySelector('.hero-pulse');
+<div class="text-center mt-12">
+<a href="services.html" class="cta-aggressive inline-block">Voir tous les services</a>
+</div>
+</section>
 
-            if(!header) return;
+</main>
 
-            // On mouse move: parallax heavy
-            header.addEventListener('mousemove', (e) => {
-                const rect = header.getBoundingClientRect();
-                const x = (e.clientX - rect.left) / rect.width - 0.5;
-                const y = (e.clientY - rect.top) / rect.height - 0.5;
-                if(heroImg){
-                    heroImg.style.transform = `scale(1.06) translate3d(${x*12}px, ${y*8}px, 0) rotate(${x*0.6}deg)`;
-                }
-                if(heroPulse){
-                    heroPulse.style.transform = `translate(-50%,-50%) scale(${1 + Math.abs(x)*0.06})`;
-                }
-            });
+<footer>
+<p>© 2024 Manescon Immobilier. Tous droits réservés.</p>
+<div class="flex justify-center space-x-4 mt-4">
+<a href="#"><svg class="lucide w-6 h-6"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 11-11.4 11.4 1.1-.9 2.5-2.1 3.4-3.5 1.2-1.3-.3-2.6-.9-3.6 1.7-.3 3.5-1.5 4.9-3.2"/></svg></a>
+<a href="#"><svg class="lucide w-6 h-6"><path d="M16 8a6 6 0 0 0-6 6v7h4v-7a2 2 0 0 1 2-2"/></svg></a>
+<a href="#"><svg class="lucide w-6 h-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+</div>
+</footer>
 
-            // Subtle idle motion for background image (breathing)
-            let t = 0;
-            function idle(){
-                t += 0.0028;
-                const sx = 1 + Math.sin(t) * 0.006;
-                const ry = Math.cos(t*1.1) * 0.2;
-                if(heroImg) heroImg.style.transform = `scale(${sx}) translate3d(${ry}px, ${Math.sin(t)*2}px,0)`;
-                requestAnimationFrame(idle);
-            }
-            requestAnimationFrame(idle);
-        })();
+<script>
+lucide.createIcons();
 
-        /* ---------------------
-           Aggressive small screen adjustments:
-           - Make hero text flash/glitch on click
-           --------------------- */
-        (function(){
-            const title = document.querySelector('header h1');
-            if(!title) return;
-            title.addEventListener('click', () => {
-                // temporary heavy shake
-                title.animate([
-                    { transform: 'translateX(0) rotate(0deg)'},
-                    { transform: 'translateX(-8px) rotate(-2deg)'},
-                    { transform: 'translateX(10px) rotate(3deg)'},
-                    { transform: 'translateX(-6px) rotate(-1deg)'},
-                    { transform: 'translateX(0) rotate(0deg)'}
-                ], { duration: 560, iterations: 1, easing: 'cubic-bezier(.2,.9,.2,1)'});
-            });
-        })();
+/* IntersectionObserver reveal */
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+    entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target);}
+    });
+},{threshold:0.15});
+revealEls.forEach(e=>io.observe(e));
 
-        /* ---------------------
-           Aggressive reveal sequence on load (nav + header)
-           --------------------- */
-        (function(){
-            // small entrance for nav
-            const nav = document.querySelector('nav');
-            if(nav){
-                nav.style.transform = 'translateY(-18px) perspective(600px) rotateX(6deg)';
-                nav.style.opacity = '0';
-                setTimeout(()=> {
-                    nav.style.transition = 'transform 700ms cubic-bezier(.2,.9,.2,1), opacity 600ms ease';
-                    nav.style.transform = 'translateY(0) perspective(900px) rotateX(0deg)';
-                    nav.style.opacity = '1';
-                }, 180);
-            }
+/* Mobile menu toggle */
+const btn=document.getElementById('mobile-menu-button');
+const menu=document.getElementById('mobile-menu');
+btn?.addEventListener('click',()=>menu.classList.toggle('hidden'));
+</script>
 
-            // hero title intense flash
-            const heroTitle = document.querySelector('header h1');
-            if(heroTitle){
-                heroTitle.style.opacity = '0';
-                setTimeout(()=> {
-                    heroTitle.style.transition = 'opacity 420ms ease, transform 700ms cubic-bezier(.2,.9,.2,1)';
-                    heroTitle.style.opacity = '1';
-                    heroTitle.style.transform = 'translateY(-6px) scale(1.01)';
-                    setTimeout(()=> heroTitle.style.transform = 'translateY(0) scale(1)', 700);
-                }, 300);
-            }
-        })();
-
-        /* ---------------------
-           Button "smash" keyboard accessibility: space/enter triggers pulse
-           --------------------- */
-        (function(){
-            document.querySelectorAll('a, button').forEach(el => {
-                el.addEventListener('keydown', (ev) => {
-                    if(ev.key === ' ' || ev.key === 'Enter'){
-                        el.animate([
-                            { transform: 'scale(1)'},
-                            { transform: 'scale(.94) rotate(-1deg)'},
-                            { transform: 'scale(1.03) rotate(1deg)'},
-                            { transform: 'scale(1)'}
-                        ], { duration: 360, easing: 'cubic-bezier(.2,.9,.2,1)' });
-                    }
-                });
-            });
-        })();
-
-        /* ---------------------
-           Make sure lucide icons animate on hover (small pulse)
-           --------------------- */
-        (function(){
-            document.querySelectorAll('.icon-burst').forEach(icon => {
-                icon.addEventListener('mouseenter', () => {
-                    icon.animate([{ transform: 'scale(1) rotate(0deg)'}, { transform: 'scale(1.18) rotate(-8deg)'}, { transform: 'scale(1) rotate(0deg)'}], { duration: 420, easing: 'cubic-bezier(.2,.9,.2,1)' });
-                });
-            });
-        })();
-    </script>
 </body>
 </html>
